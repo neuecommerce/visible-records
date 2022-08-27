@@ -1,0 +1,70 @@
+{
+    "name": "neuecommerce/visible-records",
+    "description": "Handle visibility state on your Laravel Eloquent model records.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Neue Commerce Team",
+            "email": "hello@neuecommerce.com",
+            "homepage": "https://neuecommerce.com"
+        }
+    ],
+    "keywords": [
+        "php",
+        "laravel",
+        "neuecommerce",
+        "eloquent",
+        "model",
+        "visible",
+        "visibility"
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/database": "^11.0",
+        "nesbot/carbon": "^3.0"
+    },
+    "require-dev": {
+        "neuecommerce/coding-standards": "dev-main",
+        "orchestra/testbench": "^9.0",
+        "pestphp/pest": "^2.13",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeueCommerce\\VisibleRecords\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NeueCommerce\\VisibleRecords\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "neuecommerce/coding-standards": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "scripts": {
+        "ecs:fix": "./vendor/bin/ecs --fix",
+        "ecs:check": "./vendor/bin/ecs",
+        "phpstan": "./vendor/bin/phpstan analyse --ansi",
+        "rector:fix": "./vendor/bin/rector process --ansi",
+        "rector:check": "./vendor/bin/rector process --ansi --dry-run",
+        "test": "./vendor/bin/pest --parallel -c phpunit.dist.xml",
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "./vendor/bin/pest --parallel --coverage -c phpunit-coverage.dist.xml"
+        ]
+    },
+    "minimum-stability": "stable"
+}
